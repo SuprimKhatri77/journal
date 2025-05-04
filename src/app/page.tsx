@@ -1,10 +1,9 @@
-import Image from "next/image";
 import { db } from "../../lib/db";
 import { JournalEntry } from "../../lib/db/schema";
 import Link from "next/link";
 
 export default async function Home() {
-  const allEntries = await db.select().from(JournalEntry);
+  const allEntries = await db.select().from(JournalEntry).orderBy(JournalEntry.createdAt);
   return (
     <div className="flex gap-5 py-2 px-5 flex-wrap items-center justify-center h-screen w-full">
       {allEntries.map((entry) => (
