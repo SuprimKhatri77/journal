@@ -13,7 +13,7 @@ export async function createEntry(data: { title: string; content: string }) {
 
 // retrieveing all the entries
 export async function getAllEntries() {
-  await db.select().from(JournalEntry).orderBy(JournalEntry.createdAt);
+  return await db.select().from(JournalEntry).orderBy(JournalEntry.createdAt);
 }
 
 // retrieving a particular entry
